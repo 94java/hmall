@@ -1,0 +1,2 @@
+2023/11/02 10:29:44 [emerg] 2172#3884: CreateFile() "E:\Java\Ç°¶Ë\hmall-nginx/conf/nginx.conf" failed (1113: No mapping for the Unicode character exists in the target multi-byte code page)
+2023/11/02 10:31:38 [emerg] 17464#5528: CreateFile() "E:\Java\Ç°¶Ë\hmall-nginx/conf/nginx.conf" failed (1113: No mapping for the Unicode character exists in the target multi-byte code page)
