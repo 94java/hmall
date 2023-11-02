@@ -728,3 +728,151 @@ Caused by: cn.hutool.jwt.JWTException: The token was expected 3 parts, but got 1
 	at com.hmall.utils.JwtTool.parseToken(JwtTool.java:52) ~[classes/:na]
 	... 42 common frames omitted
 
+13:17:36:398  INFO 18880 --- [main] com.hmall.HMallApplication               : Starting HMallApplication using Java 11.0.2 on LAPTOP-R0ND1VG7 with PID 18880 (E:\Java\project\hmall\hmall\hm-service\target\classes started by lihao in E:\Java\project\hmall\hmall)
+13:17:36:400 DEBUG 18880 --- [main] com.hmall.HMallApplication               : Running with Spring Boot v2.7.12, Spring v5.3.27
+13:17:36:402  INFO 18880 --- [main] com.hmall.HMallApplication               : The following 1 profile is active: "dev"
+13:17:37:226  INFO 18880 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+13:17:37:228  INFO 18880 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+13:17:37:256  INFO 18880 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 10 ms. Found 0 Redis repository interfaces.
+13:17:37:665  INFO 18880 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+13:17:37:672  INFO 18880 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+13:17:37:673  INFO 18880 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.75]
+13:17:37:779  INFO 18880 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+13:17:37:779  INFO 18880 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1306 ms
+13:17:39:503  INFO 18880 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2ControllerWebMvc#getDocumentation(String, HttpServletRequest)]
+13:17:39:780  INFO 18880 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+13:17:39:780  INFO 18880 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Documentation plugins bootstrapped
+13:17:39:783  INFO 18880 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+13:17:39:811  INFO 18880 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+13:17:39:975  INFO 18880 --- [main] com.hmall.HMallApplication               : Started HMallApplication in 4.016 seconds (JVM running for 5.163)
+13:18:06:052  INFO 18880 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+13:18:06:053  INFO 18880 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+13:18:06:054  INFO 18880 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+13:18:06:181  INFO 18880 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+13:18:07:421  INFO 18880 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+13:18:07:426 DEBUG 18880 --- [http-nio-8080-exec-1] com.hmall.mapper.UserMapper.selectOne    : ==>  Preparing: SELECT id,username,password,phone,create_time,update_time,status,balance FROM user WHERE (username = ?)
+13:18:07:440 DEBUG 18880 --- [http-nio-8080-exec-1] com.hmall.mapper.UserMapper.selectOne    : ==> Parameters: jack(String)
+13:18:07:528 DEBUG 18880 --- [http-nio-8080-exec-1] com.hmall.mapper.UserMapper.selectOne    : <==      Total: 1
+13:18:07:773 DEBUG 18880 --- [http-nio-8080-exec-2] com.hmall.mapper.CartMapper.selectList   : ==>  Preparing: SELECT id,user_id,item_id,num,name,spec,price,image,create_time,update_time FROM cart WHERE (user_id = ?)
+13:18:07:774 DEBUG 18880 --- [http-nio-8080-exec-2] com.hmall.mapper.CartMapper.selectList   : ==> Parameters: 1(Long)
+13:18:07:841 DEBUG 18880 --- [http-nio-8080-exec-2] com.hmall.mapper.CartMapper.selectList   : <==      Total: 0
+13:18:12:264 DEBUG 18880 --- [http-nio-8080-exec-3] c.h.m.ItemMapper.selectPage_mpCount      : ==>  Preparing: SELECT COUNT(*) FROM item WHERE (status = ?)
+13:18:12:264 DEBUG 18880 --- [http-nio-8080-exec-3] c.h.m.ItemMapper.selectPage_mpCount      : ==> Parameters: 1(Integer)
+13:18:12:345 DEBUG 18880 --- [http-nio-8080-exec-3] c.h.m.ItemMapper.selectPage_mpCount      : <==      Total: 1
+13:18:12:352 DEBUG 18880 --- [http-nio-8080-exec-3] com.hmall.mapper.ItemMapper.selectPage   : ==>  Preparing: SELECT id, name, price, stock, image, category, brand, spec, sold, comment_count, isAD, status, create_time, update_time, creater, updater FROM item WHERE (status = ?) ORDER BY update_time DESC LIMIT ?
+13:18:12:353 DEBUG 18880 --- [http-nio-8080-exec-3] com.hmall.mapper.ItemMapper.selectPage   : ==> Parameters: 1(Integer), 20(Long)
+13:18:12:594 DEBUG 18880 --- [http-nio-8080-exec-3] com.hmall.mapper.ItemMapper.selectPage   : <==      Total: 20
+13:18:14:277 DEBUG 18880 --- [http-nio-8080-exec-4] c.h.m.ItemMapper.selectPage_mpCount      : ==>  Preparing: SELECT COUNT(*) FROM item WHERE (category = ? AND status = ?)
+13:18:14:278 DEBUG 18880 --- [http-nio-8080-exec-4] c.h.m.ItemMapper.selectPage_mpCount      : ==> Parameters: 休闲鞋(String), 1(Integer)
+13:18:14:390 DEBUG 18880 --- [http-nio-8080-exec-4] c.h.m.ItemMapper.selectPage_mpCount      : <==      Total: 1
+13:18:14:392 DEBUG 18880 --- [http-nio-8080-exec-4] com.hmall.mapper.ItemMapper.selectPage   : ==>  Preparing: SELECT id, name, price, stock, image, category, brand, spec, sold, comment_count, isAD, status, create_time, update_time, creater, updater FROM item WHERE (category = ? AND status = ?) ORDER BY update_time DESC LIMIT ?
+13:18:14:392 DEBUG 18880 --- [http-nio-8080-exec-4] com.hmall.mapper.ItemMapper.selectPage   : ==> Parameters: 休闲鞋(String), 1(Integer), 20(Long)
+13:18:14:555 DEBUG 18880 --- [http-nio-8080-exec-4] com.hmall.mapper.ItemMapper.selectPage   : <==      Total: 20
+13:18:16:688 DEBUG 18880 --- [http-nio-8080-exec-5] c.h.m.ItemMapper.selectPage_mpCount      : ==>  Preparing: SELECT COUNT(*) FROM item WHERE (brand = ? AND category = ? AND status = ?)
+13:18:16:688 DEBUG 18880 --- [http-nio-8080-exec-5] c.h.m.ItemMapper.selectPage_mpCount      : ==> Parameters: oppo(String), 休闲鞋(String), 1(Integer)
+13:18:16:819 DEBUG 18880 --- [http-nio-8080-exec-5] c.h.m.ItemMapper.selectPage_mpCount      : <==      Total: 1
+13:18:18:406 DEBUG 18880 --- [http-nio-8080-exec-6] c.h.m.ItemMapper.selectPage_mpCount      : ==>  Preparing: SELECT COUNT(*) FROM item WHERE (category = ? AND status = ?)
+13:18:18:407 DEBUG 18880 --- [http-nio-8080-exec-6] c.h.m.ItemMapper.selectPage_mpCount      : ==> Parameters: 休闲鞋(String), 1(Integer)
+13:18:18:508 DEBUG 18880 --- [http-nio-8080-exec-6] c.h.m.ItemMapper.selectPage_mpCount      : <==      Total: 1
+13:18:18:509 DEBUG 18880 --- [http-nio-8080-exec-6] com.hmall.mapper.ItemMapper.selectPage   : ==>  Preparing: SELECT id, name, price, stock, image, category, brand, spec, sold, comment_count, isAD, status, create_time, update_time, creater, updater FROM item WHERE (category = ? AND status = ?) ORDER BY update_time DESC LIMIT ?
+13:18:18:509 DEBUG 18880 --- [http-nio-8080-exec-6] com.hmall.mapper.ItemMapper.selectPage   : ==> Parameters: 休闲鞋(String), 1(Integer), 20(Long)
+13:18:18:678 DEBUG 18880 --- [http-nio-8080-exec-6] com.hmall.mapper.ItemMapper.selectPage   : <==      Total: 20
+13:18:19:542 DEBUG 18880 --- [http-nio-8080-exec-7] c.h.m.ItemMapper.selectPage_mpCount      : ==>  Preparing: SELECT COUNT(*) FROM item WHERE (brand = ? AND category = ? AND status = ?)
+13:18:19:542 DEBUG 18880 --- [http-nio-8080-exec-7] c.h.m.ItemMapper.selectPage_mpCount      : ==> Parameters: 希捷(String), 休闲鞋(String), 1(Integer)
+13:18:19:677 DEBUG 18880 --- [http-nio-8080-exec-7] c.h.m.ItemMapper.selectPage_mpCount      : <==      Total: 1
+13:18:20:839 DEBUG 18880 --- [http-nio-8080-exec-8] c.h.m.ItemMapper.selectPage_mpCount      : ==>  Preparing: SELECT COUNT(*) FROM item WHERE (category = ? AND status = ?)
+13:18:20:840 DEBUG 18880 --- [http-nio-8080-exec-8] c.h.m.ItemMapper.selectPage_mpCount      : ==> Parameters: 休闲鞋(String), 1(Integer)
+13:18:20:944 DEBUG 18880 --- [http-nio-8080-exec-8] c.h.m.ItemMapper.selectPage_mpCount      : <==      Total: 1
+13:18:20:946 DEBUG 18880 --- [http-nio-8080-exec-8] com.hmall.mapper.ItemMapper.selectPage   : ==>  Preparing: SELECT id, name, price, stock, image, category, brand, spec, sold, comment_count, isAD, status, create_time, update_time, creater, updater FROM item WHERE (category = ? AND status = ?) ORDER BY update_time DESC LIMIT ?
+13:18:20:946 DEBUG 18880 --- [http-nio-8080-exec-8] com.hmall.mapper.ItemMapper.selectPage   : ==> Parameters: 休闲鞋(String), 1(Integer), 20(Long)
+13:18:21:101 DEBUG 18880 --- [http-nio-8080-exec-8] com.hmall.mapper.ItemMapper.selectPage   : <==      Total: 20
+13:18:23:126 DEBUG 18880 --- [http-nio-8080-exec-10] com.hmall.mapper.CartMapper.selectCount  : ==>  Preparing: SELECT COUNT( * ) FROM cart WHERE (user_id = ? AND item_id = ?)
+13:18:23:126 DEBUG 18880 --- [http-nio-8080-exec-10] com.hmall.mapper.CartMapper.selectCount  : ==> Parameters: 1(Long), 100002164672(Long)
+13:18:23:188 DEBUG 18880 --- [http-nio-8080-exec-10] com.hmall.mapper.CartMapper.selectCount  : <==      Total: 1
+13:18:23:190 DEBUG 18880 --- [http-nio-8080-exec-10] com.hmall.mapper.CartMapper.selectCount  : ==>  Preparing: SELECT COUNT( * ) FROM cart WHERE (user_id = ?)
+13:18:23:190 DEBUG 18880 --- [http-nio-8080-exec-10] com.hmall.mapper.CartMapper.selectCount  : ==> Parameters: 1(Long)
+13:18:23:253 DEBUG 18880 --- [http-nio-8080-exec-10] com.hmall.mapper.CartMapper.selectCount  : <==      Total: 1
+13:18:23:256 DEBUG 18880 --- [http-nio-8080-exec-10] com.hmall.mapper.CartMapper.insert       : ==>  Preparing: INSERT INTO cart ( user_id, item_id, name, spec, price, image ) VALUES ( ?, ?, ?, ?, ?, ? )
+13:18:23:256 DEBUG 18880 --- [http-nio-8080-exec-10] com.hmall.mapper.CartMapper.insert       : ==> Parameters: 1(Long), 100002164672(Long), 意尔康女士运动休闲户外跑步厚底ins老爹鞋 9161ZD49302W 米白 40(String), {"颜色": "米色", "尺码": "40"}(String), 54400(Integer), https://m.360buyimg.com/mobilecms/s720x720_jfs/t26146/126/2099783726/233492/46f3fd6a/5bf89e1eNe21cb55b.jpg!q70.jpg.webp(String)
+13:18:23:702 DEBUG 18880 --- [http-nio-8080-exec-10] com.hmall.mapper.CartMapper.insert       : <==    Updates: 1
+13:18:23:840 DEBUG 18880 --- [http-nio-8080-exec-9] com.hmall.mapper.CartMapper.selectList   : ==>  Preparing: SELECT id,user_id,item_id,num,name,spec,price,image,create_time,update_time FROM cart WHERE (user_id = ?)
+13:18:23:841 DEBUG 18880 --- [http-nio-8080-exec-9] com.hmall.mapper.CartMapper.selectList   : ==> Parameters: 1(Long)
+13:18:23:928 DEBUG 18880 --- [http-nio-8080-exec-9] com.hmall.mapper.CartMapper.selectList   : <==      Total: 1
+13:18:23:932 DEBUG 18880 --- [http-nio-8080-exec-9] c.h.mapper.ItemMapper.selectBatchIds     : ==>  Preparing: SELECT id,name,price,stock,image,category,brand,spec,sold,comment_count,isAD,status,create_time,update_time,creater,updater FROM item WHERE id IN ( ? )
+13:18:23:933 DEBUG 18880 --- [http-nio-8080-exec-9] c.h.mapper.ItemMapper.selectBatchIds     : ==> Parameters: 100002164672(Long)
+13:18:24:007 DEBUG 18880 --- [http-nio-8080-exec-9] c.h.mapper.ItemMapper.selectBatchIds     : <==      Total: 1
+13:18:28:261 DEBUG 18880 --- [http-nio-8080-exec-1] com.hmall.mapper.CartMapper.selectList   : ==>  Preparing: SELECT id,user_id,item_id,num,name,spec,price,image,create_time,update_time FROM cart WHERE (user_id = ?)
+13:18:28:261 DEBUG 18880 --- [http-nio-8080-exec-1] com.hmall.mapper.CartMapper.selectList   : ==> Parameters: 1(Long)
+13:18:28:323 DEBUG 18880 --- [http-nio-8080-exec-1] com.hmall.mapper.CartMapper.selectList   : <==      Total: 1
+13:18:28:324 DEBUG 18880 --- [http-nio-8080-exec-1] c.h.mapper.ItemMapper.selectBatchIds     : ==>  Preparing: SELECT id,name,price,stock,image,category,brand,spec,sold,comment_count,isAD,status,create_time,update_time,creater,updater FROM item WHERE id IN ( ? )
+13:18:28:324 DEBUG 18880 --- [http-nio-8080-exec-1] c.h.mapper.ItemMapper.selectBatchIds     : ==> Parameters: 100002164672(Long)
+13:18:28:387 DEBUG 18880 --- [http-nio-8080-exec-1] c.h.mapper.ItemMapper.selectBatchIds     : <==      Total: 1
+13:18:30:010 DEBUG 18880 --- [http-nio-8080-exec-2] c.h.m.ItemMapper.selectPage_mpCount      : ==>  Preparing: SELECT COUNT(*) FROM item WHERE (status = ?)
+13:18:30:011 DEBUG 18880 --- [http-nio-8080-exec-2] c.h.m.ItemMapper.selectPage_mpCount      : ==> Parameters: 1(Integer)
+13:18:30:097 DEBUG 18880 --- [http-nio-8080-exec-2] c.h.m.ItemMapper.selectPage_mpCount      : <==      Total: 1
+13:18:30:098 DEBUG 18880 --- [http-nio-8080-exec-2] com.hmall.mapper.ItemMapper.selectPage   : ==>  Preparing: SELECT id, name, price, stock, image, category, brand, spec, sold, comment_count, isAD, status, create_time, update_time, creater, updater FROM item WHERE (status = ?) ORDER BY update_time DESC LIMIT ?
+13:18:30:098 DEBUG 18880 --- [http-nio-8080-exec-2] com.hmall.mapper.ItemMapper.selectPage   : ==> Parameters: 1(Integer), 20(Long)
+13:18:30:176 DEBUG 18880 --- [http-nio-8080-exec-2] com.hmall.mapper.ItemMapper.selectPage   : <==      Total: 20
+13:18:31:999 DEBUG 18880 --- [http-nio-8080-exec-3] com.hmall.mapper.CartMapper.selectCount  : ==>  Preparing: SELECT COUNT( * ) FROM cart WHERE (user_id = ? AND item_id = ?)
+13:18:32:000 DEBUG 18880 --- [http-nio-8080-exec-3] com.hmall.mapper.CartMapper.selectCount  : ==> Parameters: 1(Long), 14741770661(Long)
+13:18:32:070 DEBUG 18880 --- [http-nio-8080-exec-3] com.hmall.mapper.CartMapper.selectCount  : <==      Total: 1
+13:18:32:071 DEBUG 18880 --- [http-nio-8080-exec-3] com.hmall.mapper.CartMapper.selectCount  : ==>  Preparing: SELECT COUNT( * ) FROM cart WHERE (user_id = ?)
+13:18:32:071 DEBUG 18880 --- [http-nio-8080-exec-3] com.hmall.mapper.CartMapper.selectCount  : ==> Parameters: 1(Long)
+13:18:32:134 DEBUG 18880 --- [http-nio-8080-exec-3] com.hmall.mapper.CartMapper.selectCount  : <==      Total: 1
+13:18:32:135 DEBUG 18880 --- [http-nio-8080-exec-3] com.hmall.mapper.CartMapper.insert       : ==>  Preparing: INSERT INTO cart ( user_id, item_id, name, spec, price, image ) VALUES ( ?, ?, ?, ?, ?, ? )
+13:18:32:136 DEBUG 18880 --- [http-nio-8080-exec-3] com.hmall.mapper.CartMapper.insert       : ==> Parameters: 1(Long), 14741770661(Long), 康佳（KONKA） LED49UC3 49英寸超薄曲面36核4K HDR人工智能电视(String), {}(String), 144600(Integer), https://m.360buyimg.com/mobilecms/s720x720_jfs/t16477/84/2032772431/400946/2887be91/5a912776N7e343ec3.jpg!q70.jpg.webp(String)
+13:18:32:612 DEBUG 18880 --- [http-nio-8080-exec-3] com.hmall.mapper.CartMapper.insert       : <==    Updates: 1
+13:18:32:759 DEBUG 18880 --- [http-nio-8080-exec-4] com.hmall.mapper.CartMapper.selectList   : ==>  Preparing: SELECT id,user_id,item_id,num,name,spec,price,image,create_time,update_time FROM cart WHERE (user_id = ?)
+13:18:32:759 DEBUG 18880 --- [http-nio-8080-exec-4] com.hmall.mapper.CartMapper.selectList   : ==> Parameters: 1(Long)
+13:18:32:826 DEBUG 18880 --- [http-nio-8080-exec-4] com.hmall.mapper.CartMapper.selectList   : <==      Total: 2
+13:18:32:827 DEBUG 18880 --- [http-nio-8080-exec-4] c.h.mapper.ItemMapper.selectBatchIds     : ==>  Preparing: SELECT id,name,price,stock,image,category,brand,spec,sold,comment_count,isAD,status,create_time,update_time,creater,updater FROM item WHERE id IN ( ? , ? )
+13:18:32:827 DEBUG 18880 --- [http-nio-8080-exec-4] c.h.mapper.ItemMapper.selectBatchIds     : ==> Parameters: 100002164672(Long), 14741770661(Long)
+13:18:33:154 DEBUG 18880 --- [http-nio-8080-exec-4] c.h.mapper.ItemMapper.selectBatchIds     : <==      Total: 2
+13:18:40:848 DEBUG 18880 --- [http-nio-8080-exec-5] com.hmall.mapper.CartMapper.selectList   : ==>  Preparing: SELECT id,user_id,item_id,num,name,spec,price,image,create_time,update_time FROM cart WHERE (user_id = ?)
+13:18:40:848 DEBUG 18880 --- [http-nio-8080-exec-5] com.hmall.mapper.CartMapper.selectList   : ==> Parameters: 1(Long)
+13:18:40:924 DEBUG 18880 --- [http-nio-8080-exec-5] com.hmall.mapper.CartMapper.selectList   : <==      Total: 2
+13:18:40:925 DEBUG 18880 --- [http-nio-8080-exec-5] c.h.mapper.ItemMapper.selectBatchIds     : ==>  Preparing: SELECT id,name,price,stock,image,category,brand,spec,sold,comment_count,isAD,status,create_time,update_time,creater,updater FROM item WHERE id IN ( ? , ? )
+13:18:40:926 DEBUG 18880 --- [http-nio-8080-exec-5] c.h.mapper.ItemMapper.selectBatchIds     : ==> Parameters: 100002164672(Long), 14741770661(Long)
+13:18:40:992 DEBUG 18880 --- [http-nio-8080-exec-5] c.h.mapper.ItemMapper.selectBatchIds     : <==      Total: 2
+13:20:07:139 DEBUG 18880 --- [http-nio-8080-exec-6] com.hmall.mapper.CartMapper.selectList   : ==>  Preparing: SELECT id,user_id,item_id,num,name,spec,price,image,create_time,update_time FROM cart WHERE (user_id = ?)
+13:20:07:140 DEBUG 18880 --- [http-nio-8080-exec-6] com.hmall.mapper.CartMapper.selectList   : ==> Parameters: 1(Long)
+13:20:07:213 DEBUG 18880 --- [http-nio-8080-exec-6] com.hmall.mapper.CartMapper.selectList   : <==      Total: 2
+13:20:07:214 DEBUG 18880 --- [http-nio-8080-exec-6] c.h.mapper.ItemMapper.selectBatchIds     : ==>  Preparing: SELECT id,name,price,stock,image,category,brand,spec,sold,comment_count,isAD,status,create_time,update_time,creater,updater FROM item WHERE id IN ( ? , ? )
+13:20:07:214 DEBUG 18880 --- [http-nio-8080-exec-6] c.h.mapper.ItemMapper.selectBatchIds     : ==> Parameters: 100002164672(Long), 14741770661(Long)
+13:20:07:294 DEBUG 18880 --- [http-nio-8080-exec-6] c.h.mapper.ItemMapper.selectBatchIds     : <==      Total: 2
+13:20:10:254 DEBUG 18880 --- [http-nio-8080-exec-7] com.hmall.mapper.CartMapper.updateById   : ==>  Preparing: UPDATE cart SET num=? WHERE id=?
+13:20:10:254 DEBUG 18880 --- [http-nio-8080-exec-7] com.hmall.mapper.CartMapper.updateById   : ==> Parameters: 2(Integer), 12(Long)
+13:20:10:383 DEBUG 18880 --- [http-nio-8080-exec-7] com.hmall.mapper.CartMapper.updateById   : <==    Updates: 1
+13:20:10:392 DEBUG 18880 --- [http-nio-8080-exec-8] com.hmall.mapper.CartMapper.updateById   : ==>  Preparing: UPDATE cart SET num=? WHERE id=?
+13:20:10:393 DEBUG 18880 --- [http-nio-8080-exec-8] com.hmall.mapper.CartMapper.updateById   : ==> Parameters: 2(Integer), 12(Long)
+13:20:10:455 DEBUG 18880 --- [http-nio-8080-exec-10] com.hmall.mapper.CartMapper.selectList   : ==>  Preparing: SELECT id,user_id,item_id,num,name,spec,price,image,create_time,update_time FROM cart WHERE (user_id = ?)
+13:20:10:456 DEBUG 18880 --- [http-nio-8080-exec-10] com.hmall.mapper.CartMapper.selectList   : ==> Parameters: 1(Long)
+13:20:10:518 DEBUG 18880 --- [http-nio-8080-exec-10] com.hmall.mapper.CartMapper.selectList   : <==      Total: 2
+13:20:10:519 DEBUG 18880 --- [http-nio-8080-exec-10] c.h.mapper.ItemMapper.selectBatchIds     : ==>  Preparing: SELECT id,name,price,stock,image,category,brand,spec,sold,comment_count,isAD,status,create_time,update_time,creater,updater FROM item WHERE id IN ( ? , ? )
+13:20:10:520 DEBUG 18880 --- [http-nio-8080-exec-10] c.h.mapper.ItemMapper.selectBatchIds     : ==> Parameters: 100002164672(Long), 14741770661(Long)
+13:20:10:524 DEBUG 18880 --- [http-nio-8080-exec-8] com.hmall.mapper.CartMapper.updateById   : <==    Updates: 1
+13:20:10:594 DEBUG 18880 --- [http-nio-8080-exec-10] c.h.mapper.ItemMapper.selectBatchIds     : <==      Total: 2
+13:20:10:600 DEBUG 18880 --- [http-nio-8080-exec-9] com.hmall.mapper.CartMapper.selectList   : ==>  Preparing: SELECT id,user_id,item_id,num,name,spec,price,image,create_time,update_time FROM cart WHERE (user_id = ?)
+13:20:10:600 DEBUG 18880 --- [http-nio-8080-exec-9] com.hmall.mapper.CartMapper.selectList   : ==> Parameters: 1(Long)
+13:20:10:665 DEBUG 18880 --- [http-nio-8080-exec-9] com.hmall.mapper.CartMapper.selectList   : <==      Total: 2
+13:20:10:666 DEBUG 18880 --- [http-nio-8080-exec-9] c.h.mapper.ItemMapper.selectBatchIds     : ==>  Preparing: SELECT id,name,price,stock,image,category,brand,spec,sold,comment_count,isAD,status,create_time,update_time,creater,updater FROM item WHERE id IN ( ? , ? )
+13:20:10:666 DEBUG 18880 --- [http-nio-8080-exec-9] c.h.mapper.ItemMapper.selectBatchIds     : ==> Parameters: 100002164672(Long), 14741770661(Long)
+13:20:10:733 DEBUG 18880 --- [http-nio-8080-exec-9] c.h.mapper.ItemMapper.selectBatchIds     : <==      Total: 2
+13:20:12:261 DEBUG 18880 --- [http-nio-8080-exec-1] com.hmall.mapper.CartMapper.updateById   : ==>  Preparing: UPDATE cart SET num=? WHERE id=?
+13:20:12:262 DEBUG 18880 --- [http-nio-8080-exec-1] com.hmall.mapper.CartMapper.updateById   : ==> Parameters: 3(Integer), 12(Long)
+13:20:12:388 DEBUG 18880 --- [http-nio-8080-exec-1] com.hmall.mapper.CartMapper.updateById   : <==    Updates: 1
+13:20:12:415 DEBUG 18880 --- [http-nio-8080-exec-2] com.hmall.mapper.CartMapper.selectList   : ==>  Preparing: SELECT id,user_id,item_id,num,name,spec,price,image,create_time,update_time FROM cart WHERE (user_id = ?)
+13:20:12:416 DEBUG 18880 --- [http-nio-8080-exec-2] com.hmall.mapper.CartMapper.selectList   : ==> Parameters: 1(Long)
+13:20:12:486 DEBUG 18880 --- [http-nio-8080-exec-2] com.hmall.mapper.CartMapper.selectList   : <==      Total: 2
+13:20:12:487 DEBUG 18880 --- [http-nio-8080-exec-2] c.h.mapper.ItemMapper.selectBatchIds     : ==>  Preparing: SELECT id,name,price,stock,image,category,brand,spec,sold,comment_count,isAD,status,create_time,update_time,creater,updater FROM item WHERE id IN ( ? , ? )
+13:20:12:487 DEBUG 18880 --- [http-nio-8080-exec-2] c.h.mapper.ItemMapper.selectBatchIds     : ==> Parameters: 100002164672(Long), 14741770661(Long)
+13:20:12:553 DEBUG 18880 --- [http-nio-8080-exec-2] c.h.mapper.ItemMapper.selectBatchIds     : <==      Total: 2
+13:20:19:445 DEBUG 18880 --- [http-nio-8080-exec-3] com.hmall.mapper.CartMapper.selectList   : ==>  Preparing: SELECT id,user_id,item_id,num,name,spec,price,image,create_time,update_time FROM cart WHERE (user_id = ?)
+13:20:19:445 DEBUG 18880 --- [http-nio-8080-exec-3] com.hmall.mapper.CartMapper.selectList   : ==> Parameters: 1(Long)
+13:20:19:508 DEBUG 18880 --- [http-nio-8080-exec-3] com.hmall.mapper.CartMapper.selectList   : <==      Total: 2
+13:20:19:510 DEBUG 18880 --- [http-nio-8080-exec-3] c.h.mapper.ItemMapper.selectBatchIds     : ==>  Preparing: SELECT id,name,price,stock,image,category,brand,spec,sold,comment_count,isAD,status,create_time,update_time,creater,updater FROM item WHERE id IN ( ? , ? )
+13:20:19:510 DEBUG 18880 --- [http-nio-8080-exec-3] c.h.mapper.ItemMapper.selectBatchIds     : ==> Parameters: 100002164672(Long), 14741770661(Long)
+13:20:19:577 DEBUG 18880 --- [http-nio-8080-exec-3] c.h.mapper.ItemMapper.selectBatchIds     : <==      Total: 2
+13:20:27:624 DEBUG 18880 --- [http-nio-8080-exec-4] c.hmall.mapper.AddressMapper.selectList  : ==>  Preparing: SELECT id,user_id,province,city,town,mobile,street,contact,is_default,notes FROM address WHERE (user_id = ?)
+13:20:27:624 DEBUG 18880 --- [http-nio-8080-exec-4] c.hmall.mapper.AddressMapper.selectList  : ==> Parameters: 1(Long)
+13:20:27:695 DEBUG 18880 --- [http-nio-8080-exec-4] c.hmall.mapper.AddressMapper.selectList  : <==      Total: 4
