@@ -1,12 +1,11 @@
 package com.hmall.cart.service.impl;
 
-import cn.hutool.core.collection.CollUtil;
-import cn.hutool.core.util.RandomUtil;
 import cn.hutool.core.util.StrUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.hmall.api.client.ItemClient;
+import com.hmall.api.dto.ItemDTO;
 import com.hmall.cart.domain.dto.CartFormDTO;
-import com.hmall.cart.domain.dto.ItemDTO;
 import com.hmall.cart.domain.po.Cart;
 import com.hmall.cart.domain.vo.CartVO;
 import com.hmall.cart.mapper.CartMapper;
@@ -15,17 +14,10 @@ import com.hmall.common.exception.BizIllegalException;
 import com.hmall.common.utils.BeanUtils;
 import com.hmall.common.utils.CollUtils;
 import com.hmall.common.utils.UserContext;
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
-import org.springframework.cloud.client.ServiceInstance;
-import org.springframework.cloud.client.discovery.DiscoveryClient;
-import org.springframework.core.ParameterizedTypeReference;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.ResponseEntity;
+import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
 
-import java.net.URI;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
@@ -45,11 +37,11 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class CartServiceImpl extends ServiceImpl<CartMapper, Cart> implements ICartService {
 
-    // TODO : 远程调用 itemService
     // private final IItemService itemService;
-    private final RestTemplate restTemplate;
+    // private final RestTemplate restTemplate;
+    // private final DiscoveryClient discoveryClient;
 
-    private final DiscoveryClient discoveryClient;
+    private final ItemClient itemClient;
 
     @Override
     public void addItem2Cart(CartFormDTO cartFormDTO) {
@@ -94,12 +86,11 @@ public class CartServiceImpl extends ServiceImpl<CartMapper, Cart> implements IC
     }
 
     private void handleCartItems(List<CartVO> vos) {
-        // TODO : 远程调用 itemService
         // 1.获取商品id
         Set<Long> itemIds = vos.stream().map(CartVO::getItemId).collect(Collectors.toSet());
         // 2.查询商品
         // 获取商品服务的实例列表
-        List<ServiceInstance> instances = discoveryClient.getInstances("item-service");
+        /*List<ServiceInstance> instances = discoveryClient.getInstances("item-service");
         if(CollUtil.isEmpty(instances)){
             return;
         }
@@ -126,7 +117,9 @@ public class CartServiceImpl extends ServiceImpl<CartMapper, Cart> implements IC
 
         if (CollUtils.isEmpty(items)) {
             return;
-        }
+        }*/
+        List<ItemDTO> items = itemClient.queryItemByIds(itemIds);
+
         // 3.转为 id 到 item的map
         Map<Long, ItemDTO> itemMap = items.stream().collect(Collectors.toMap(ItemDTO::getId, Function.identity()));
         // 4.写入vo
