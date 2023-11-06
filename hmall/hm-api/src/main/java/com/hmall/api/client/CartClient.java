@@ -1,5 +1,6 @@
 package com.hmall.api.client;
 
+import com.hmall.api.client.fallback.ItemClientFallbackFactory;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,6 +16,6 @@ import java.util.List;
 @FeignClient(value = "cart-service")
 public interface CartClient {
 
-    @DeleteMapping
+    @DeleteMapping("/carts")
     public void deleteCartItemByIds(@RequestParam("ids") Collection<Long> ids);
 }
